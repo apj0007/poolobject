@@ -43,7 +43,7 @@ public class ReusablePoolTest {
 	 */
 	@Test
 	public void testAcquireReusable() {
-		fail("Not yet implemented");
+		assert(ReusablePool.getInstance().acquireReusable() instanceof Reusable);
 	}
 
 	/**
