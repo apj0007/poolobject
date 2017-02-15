@@ -31,6 +31,7 @@ public class ReusablePoolTest {
 
 	/**
 	 * Test method for {@link ubu.gii.dass.c01.ReusablePool#getInstance()}.
+	 * Se realiza una llamada al metodo getInstance() comprobando que no devuelve una instancia null
 	 */
 	@Test
 	public void testGetInstance() {
