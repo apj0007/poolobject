@@ -24,6 +24,7 @@ public class ReusablePoolTest {
 	@Before
 	public void setUp() throws Exception {
 		rePool = ReusablePool.getInstance();
+		reusables = new Vector<Reusable>(2);
 	}
 
 	/**
