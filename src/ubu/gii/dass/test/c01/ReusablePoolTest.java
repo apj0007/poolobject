@@ -32,6 +32,10 @@ public class ReusablePoolTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
+		assertNotNull(cliente);
+		assertNotNull(new Client());
+		assertNotNull(elemento);
+		assertNotNull(new Reusable());
 	}
 
 	/**
