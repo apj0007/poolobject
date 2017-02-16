@@ -66,8 +66,15 @@ public class ReusablePoolTest {
 	 * Test method for {@link ubu.gii.dass.c01.ReusablePool#releaseReusable(ubu.gii.dass.c01.Reusable)}.
 	 */
 	@Test
-	public void testReleaseReusable() {
-		fail("Not yet implemented");
+	public void testReleaseReusable() throws  DuplicatedInstanceException,NotFreeInstanceException{
+		reusables.add(reu1);
+		reusables.add(reu2);
+		try{
+			reu3=rePool.acquireReusable();
+			reusables.add(reu3);
+			rePool.releaseReusable(reu3);
+			rePool.releaseReusable(reu3);
+		}catch(DuplicatedInstanceException e){
+			System.err.println(e);}
 	}
-
 }
