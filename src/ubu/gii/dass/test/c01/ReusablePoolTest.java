@@ -14,12 +14,14 @@ import org.junit.Test;
  *
  */
 public class ReusablePoolTest {
+	private ReusablePool rePool;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
+		rePool = ReusablePool.getInstance();
 	}
 
 	/**
@@ -35,7 +37,11 @@ public class ReusablePoolTest {
 	 */
 	@Test
 	public void testGetInstance() {
-		assert(ReusablePool.getInstance()!=null);
+		ReusablePool rePool2 = ReusablePool.getInstance();
+		assertTrue(rePool instanceof ReusablePool);
+		assertTrue(rePool2 instanceof ReusablePool);
+		assertTrue(rePool.equals(rePool2));
+	}
 	}
 
 	/**
