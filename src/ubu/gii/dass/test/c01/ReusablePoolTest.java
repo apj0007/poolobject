@@ -14,6 +14,7 @@ import org.junit.Test;
  *
  */
 public class ReusablePoolTest {
+	//Declaracion de variables
 	private ReusablePool rePool;
 	Reusable elemento=new Reusable();
 	Client cliente=new Client();
@@ -23,6 +24,7 @@ public class ReusablePoolTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		//Inicialización de rePool y declaración de vector de Reusable
 		rePool = ReusablePool.getInstance();
 		reusables = new Vector<Reusable>(2);
 	}
@@ -32,6 +34,7 @@ public class ReusablePoolTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
+		//Asserts para la clase Client() y Reusable()
 		assertNotNull(cliente);
 		assertNotNull(new Client());
 		assertNotNull(elemento);
@@ -44,9 +47,12 @@ public class ReusablePoolTest {
 	 */
 	@Test
 	public void testGetInstance() {
+		//Creación de rePool
 		ReusablePool rePool2 = ReusablePool.getInstance();
+		//Comprobación de que no es null
 		assertTrue(rePool instanceof ReusablePool);
 		assertTrue(rePool2 instanceof ReusablePool);
+		//Comprobacion de que ambos ReusablePool son iguales
 		assertTrue(rePool.equals(rePool2));
 	}
 	}
@@ -56,6 +62,7 @@ public class ReusablePoolTest {
 	 */
 	@Test
 	public void testAcquireReusable() throws NotFreeInstanceException{
+		//Creación de objeto Reusable que nos indicara cuando no existen más objetos Reusable
 		Reusable flag = rePool.acquireReusable();
 		try{
 			while(flag!=null){
@@ -72,11 +79,15 @@ public class ReusablePoolTest {
 	 */
 	@Test
 	public void testReleaseReusable() throws  DuplicatedInstanceException,NotFreeInstanceException{
+		//reu1 y reu2 se añaden al vectro de Reusable
 		reusables.add(reu1);
 		reusables.add(reu2);
 		try{
+			//reu3 solicita un objeto Reusable
 			reu3=rePool.acquireReusable();
+			//reu3 se añade al vectro de Reusable
 			reusables.add(reu3);
+			//Se comprueba que no se puede añadir dos veces el mismo objeto Reusable
 			rePool.releaseReusable(reu3);
 			rePool.releaseReusable(reu3);
 		}catch(DuplicatedInstanceException e){
