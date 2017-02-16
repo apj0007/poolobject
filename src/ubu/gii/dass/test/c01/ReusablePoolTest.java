@@ -15,6 +15,8 @@ import org.junit.Test;
  */
 public class ReusablePoolTest {
 	private ReusablePool rePool;
+	Reusable elemento=new Reusable();
+	Client cliente=new Client();
 
 	/**
 	 * @throws java.lang.Exception
