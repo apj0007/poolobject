@@ -16,6 +16,8 @@ import org.junit.Test;
 public class ReusablePoolTest {
 	//Declaracion de variables
 	private ReusablePool rePool;
+	private Vector<Reusable> reusables;
+	private Reusable reu1,reu2,reu3;
 	Reusable elemento=new Reusable();
 	Client cliente=new Client();
 
